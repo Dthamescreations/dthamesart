@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D. Thames Creations | Collection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <header>
+        <a href="index.html" class="logo">Studio Name</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gallery.html" class="active">Gallery</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Artwork Gallery</h2>
+        <p>Click on any artwork to view a larger preview, details, and purchase options.</p>
+
+        <div class="gallery-grid">
+            <!-- Item 1 -->
+            <div class="art-card" onclick="openModal('https://via.placeholder.com/800x1000/1c2541/d4af37?text=Art+Piece+1', 'Golden Sunrise', '$250.00', 'Original 8x10 Acrylic on Canvas. Signed and framed.')">
+                <div class="art-card-img-wrapper">
+                    <img src="https://via.placeholder.com/400x500/1c2541/d4af37?text=Art+Piece+1" alt="Golden Sunrise">
+                </div>
+                <div class="art-card-info">
+                    <div class="art-title">Golden Sunrise</div>
+                    <div class="art-price">$40</div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="art-card" onclick="openModal('https://via.placeholder.com/800x1000/1c2541/d4af37?text=Art+Piece+2', 'Ocean Whispers', '$180.00', 'Original 8x10 Watercolor print with metallic gold leaf highlights.')">
+                <div class="art-card-img-wrapper">
+                    <img src="https://via.placeholder.com/400x500/1c2541/d4af37?text=Art+Piece+2" alt="Ocean Whispers">
+                </div>
+                <div class="art-card-info">
+                    <div class="art-title">Ocean Whispers</div>
+                    <div class="art-price">$180.00</div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="art-card" onclick="openModal('https://via.placeholder.com/800x1000/1c2541/d4af37?text=Art+Piece+3', 'Midnight Harmony', '$300.00', 'Original 8x10 Oil painting. Deep blues with gold foil elements.')">
+                <div class="art-card-img-wrapper">
+                    <img src="https://via.placeholder.com/400x500/1c2541/d4af37?text=Art+Piece+3" alt="Midnight Harmony">
+                </div>
+                <div class="art-card-info">
+                    <div class="art-title">Midnight Harmony</div>
+                    <div class="art-price">$300.00</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Popup for Gallery Items -->
+    <div id="artModal" class="modal" onclick="closeModalOnOuterClick(event)">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-img-wrapper">
+                <img id="modalImg" src="" alt="Artwork Large Preview">
+            </div>
+            <div class="modal-details">
+                <h3 id="modalTitle">Artwork Title</h3>
+                <p id="modalPrice" style="color: var(--gold-primary); font-weight: bold;"></p>
+                <p id="modalDesc"></p>
+
+                <div class="payment-options">
+                    <!-- Example Payment / Order Links -->
+                    <a id="buyButton" href="#" target="_blank" class="btn">Purchase Artwork</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <footer>
+        <p>&copy; 2026 Douglas Thames. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openModal(imgSrc, title, price, desc) {
+            document.getElementById('modalImg').src = imgSrc;
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalPrice').innerText = price;
+            document.getElementById('modalDesc').innerText = desc;
+            
+            // Set link for purchasing (e.g. Stripe Payment Link, Ko-fi, or Email prefill)
+            document.getElementById('buyButton').href = 'mailto:artist@example.com?subject=Inquiry: ' + encodeURIComponent(title);
+            
+            document.getElementById('artModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('artModal').style.display = 'none';
+        }
+
+        function closeModalOnOuterClick(e) {
+            if (e.target.id === 'artModal') {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
