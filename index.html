@@ -18,20 +18,129 @@
     </header>
 
     <main>
-        <section class="hero">
-            <h1>Fine Art & Original Works</h1>
-            <p>Explore handcrafted artwork by Douglas Thames</p>
-            <a href="gallery.html" class="btn">View Full Gallery</a>
-        </section>
+        <h2>Artwork Gallery</h2>
+        <p>Click on any artwork to view a larger preview, details, and purchase options.</p>
 
-        <section class="about-section">
-            <img src="https://via.placeholder.com/250x250/1c2541/d4af37?text=Artist+Photo" alt="Artist Portrait" class="about-img">
-            <div class="about-content">
-                <h2>About the Artist</h2>
-                <p>Hello, welcome to my sandbox. I’m Douglas Thames, creator of all artwork seen on this gallery. Use the gallery to browse and select which artwork you’d like to purchase, then fill out a form on the “contact” page to reach out for purchasing options. </p>
+        <div class="gallery-grid">
+            <!-- Art Piece 1 -->
+            <div class="art-card" onclick="openModal('assets/art/101.png', '101', '$250.00', 'Original 8x10 colored pencil on paper.')">
+                <div class="art-card-img-wrapper">
+                    <img src="assets/art/artwork1.png" alt="Golden Sunrise">
+                </div>
+                <div class="art-card-info">
+                    <div class="art-title">#101</div>
+                    <div class="art-price">$250.00</div>
+                </div>
             </div>
-        </section>
+
+            <!-- Art Piece 2 -->
+            <div class="art-card" onclick="openModal('assets/art/102.png', '102', '$180.00', 'Original 8x10 print.')">
+                <div class="art-card-img-wrapper">
+                    <img src="assets/art/102.png" alt="">
+                </div>
+                <div class="art-card-info">
+                    <div class="art-title">#102</div>
+                    <div class="art-price">$180.00</div>
+                </div>
+            </div>
+
+            <!-- Art Piece 3 -->
+            <div class="art-card" onclick="openModal('assets/art/103.png', '103', '$300.00', 'Original 8x10 print.')">
+                <div class="art-card-img-wrapper">
+                    <img src="assets/art/103.png" alt="">
+                </div>
+                <div class="art-card-info">
+                    <div class="art-title">#103</div>
+                    <div class="art-price">$300.00</div>
+                </div>
+            </div>
+
+            <!-- Art Piece 3 -->
+            <div class="art-card" onclick="openModal('assets/art/104.png', '104', '$300.00', 'Original 8x10 print.')">
+                <div class="art-card-img-wrapper">
+                    <img src="assets/art/104.png" alt="">
+                </div>
+                <div class="art-card-info">
+                    <div class="art-title">#104</div>
+                    <div class="art-price">$300.00</div>
+                </div>
+            </div>
+
+            <!-- Art Piece 3 -->
+            <div class="art-card" onclick="openModal('assets/art/105.png', '105', '$300.00', 'Original 8x10 print.')">
+                <div class="art-card-img-wrapper">
+                    <img src="assets/art/105.png" alt="">
+                </div>
+                <div class="art-card-info">
+                    <div class="art-title">#105</div>
+                    <div class="art-price">$300.00</div>
+                </div>
+            </div>
+
+            <!-- Art Piece 3 -->
+            <div class="art-card" onclick="openModal('assets/art/106.png', '106', '$300.00', 'Original 8x10 print.')">
+                <div class="art-card-img-wrapper">
+                    <img src="assets/art/106.png" alt="">
+                </div>
+                <div class="art-card-info">
+                    <div class="art-title">#106</div>
+                    <div class="art-price">$300.00</div>
+                </div>
+            </div>
+
+            <!-- Art Piece 3 -->
+            <div class="art-card" onclick="openModal('assets/art/107.png', '107', '$300.00', 'Original 8x10 print.')">
+                <div class="art-card-img-wrapper">
+                    <img src="assets/art/107.png" alt="">
+                </div>
+                <div class="art-card-info">
+                    <div class="art-title">#107</div>
+                    <div class="art-price">$300.00</div>
+                </div>
+            </div>
+
+            <!-- Art Piece 3 -->
+            <div class="art-card" onclick="openModal('assets/art/108.png', '108', '$300.00', 'Original 8x10 print.')">
+                <div class="art-card-img-wrapper">
+                    <img src="assets/art/108.png" alt="">
+                </div>
+                <div class="art-card-info">
+                    <div class="art-title">#108</div>
+                    <div class="art-price">$300.00</div>
+                </div>
+            </div>
+
+            <!-- Art Piece 3 -->
+            <div class="art-card" onclick="openModal('assets/art/109.png', '109', '$300.00', 'Original 8x10 print.')">
+                <div class="art-card-img-wrapper">
+                    <img src="assets/art/109.png" alt="">
+                </div>
+                <div class="art-card-info">
+                    <div class="art-title">#109</div>
+                    <div class="art-price">$300.00</div>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <!-- Modal Popup for Gallery Items -->
+    <div id="artModal" class="modal" onclick="closeModalOnOuterClick(event)">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-img-wrapper">
+                <img id="modalImg" src="" alt="Artwork Large Preview">
+            </div>
+            <div class="modal-details">
+                <h3 id="modalTitle">Artwork Title</h3>
+                <p id="modalPrice" style="color: var(--gold-primary); font-weight: bold;"></p>
+                <p id="modalDesc"></p>
+
+                <div class="payment-options">
+                    <a id="buyButton" href="contact.html" class="btn">Inquire / Purchase</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Douglas Thames. All Rights Reserved.</p>
