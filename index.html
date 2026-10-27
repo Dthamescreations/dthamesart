@@ -5,121 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D. Thames Creations | Home</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Pagination Styling */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 30px 0 10px;
+            font-family: inherit;
+        }
+        .pagination-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--gold-primary, #c5a059);
+            background-color: transparent;
+            color: var(--text-color, #333);
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        .pagination-btn:hover:not(:disabled) {
+            background-color: var(--gold-primary, #c5a059);
+            color: #fff;
+        }
+        .pagination-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            border-color: #ccc;
+        }
+        .pagination-info {
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <a href="index.html" class="logo">D. Thames Creations</a>
         <nav>
-    <a href="index.html">Home</a>
-    <a href="gallery.html" class="active">Gallery</a>
-    <a href="contact.html">Contact</a>
-</nav>
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </header>
 
     <main>
         <h2>Artwork Gallery</h2>
         <p>Click on any artwork to view a larger preview, details, and purchase options.</p>
 
-        <div class="gallery-grid">
-            <!-- Art Piece 1 -->
-            <div class="art-card" onclick="openModal('assets/art/101.png', '101', '$250.00', 'Original 8x10 colored pencil on paper.')">
-                <div class="art-card-img-wrapper">
-                    <img src="assets/art/artwork1.png" alt="Golden Sunrise">
-                </div>
-                <div class="art-card-info">
-                    <div class="art-title">#101</div>
-                    <div class="art-price">$250.00</div>
-                </div>
-            </div>
+        <!-- Gallery Grid (Populated dynamically via JS) -->
+        <div class="gallery-grid" id="galleryGrid"></div>
 
-            <!-- Art Piece 2 -->
-            <div class="art-card" onclick="openModal('assets/art/102.png', '102', '$180.00', 'Original 8x10 print.')">
-                <div class="art-card-img-wrapper">
-                    <img src="assets/art/102.png" alt="">
-                </div>
-                <div class="art-card-info">
-                    <div class="art-title">#102</div>
-                    <div class="art-price">$180.00</div>
-                </div>
-            </div>
-
-            <!-- Art Piece 3 -->
-            <div class="art-card" onclick="openModal('assets/art/103.png', '103', '$300.00', 'Original 8x10 print.')">
-                <div class="art-card-img-wrapper">
-                    <img src="assets/art/103.png" alt="">
-                </div>
-                <div class="art-card-info">
-                    <div class="art-title">#103</div>
-                    <div class="art-price">$300.00</div>
-                </div>
-            </div>
-
-            <!-- Art Piece 3 -->
-            <div class="art-card" onclick="openModal('assets/art/104.png', '104', '$300.00', 'Original 8x10 print.')">
-                <div class="art-card-img-wrapper">
-                    <img src="assets/art/104.png" alt="">
-                </div>
-                <div class="art-card-info">
-                    <div class="art-title">#104</div>
-                    <div class="art-price">$300.00</div>
-                </div>
-            </div>
-
-            <!-- Art Piece 3 -->
-            <div class="art-card" onclick="openModal('assets/art/105.png', '105', '$300.00', 'Original 8x10 print.')">
-                <div class="art-card-img-wrapper">
-                    <img src="assets/art/105.png" alt="">
-                </div>
-                <div class="art-card-info">
-                    <div class="art-title">#105</div>
-                    <div class="art-price">$300.00</div>
-                </div>
-            </div>
-
-            <!-- Art Piece 3 -->
-            <div class="art-card" onclick="openModal('assets/art/106.png', '106', '$300.00', 'Original 8x10 print.')">
-                <div class="art-card-img-wrapper">
-                    <img src="assets/art/106.png" alt="">
-                </div>
-                <div class="art-card-info">
-                    <div class="art-title">#106</div>
-                    <div class="art-price">$300.00</div>
-                </div>
-            </div>
-
-            <!-- Art Piece 3 -->
-            <div class="art-card" onclick="openModal('assets/art/107.png', '107', '$300.00', 'Original 8x10 print.')">
-                <div class="art-card-img-wrapper">
-                    <img src="assets/art/107.png" alt="">
-                </div>
-                <div class="art-card-info">
-                    <div class="art-title">#107</div>
-                    <div class="art-price">$300.00</div>
-                </div>
-            </div>
-
-            <!-- Art Piece 3 -->
-            <div class="art-card" onclick="openModal('assets/art/108.png', '108', '$300.00', 'Original 8x10 print.')">
-                <div class="art-card-img-wrapper">
-                    <img src="assets/art/108.png" alt="">
-                </div>
-                <div class="art-card-info">
-                    <div class="art-title">#108</div>
-                    <div class="art-price">$300.00</div>
-                </div>
-            </div>
-
-            <!-- Art Piece 3 -->
-            <div class="art-card" onclick="openModal('assets/art/109.png', '109', '$300.00', 'Original 8x10 print.')">
-                <div class="art-card-img-wrapper">
-                    <img src="assets/art/109.png" alt="">
-                </div>
-                <div class="art-card-info">
-                    <div class="art-title">#109</div>
-                    <div class="art-price">$300.00</div>
-                </div>
-            </div>
+        <!-- Pagination Controls -->
+        <div class="pagination-container">
+            <button class="pagination-btn" id="prevBtn" onclick="changePage(-1)">Previous</button>
+            <span class="pagination-info" id="pageInfo">Page 1</span>
+            <button class="pagination-btn" id="nextBtn" onclick="changePage(1)">Next</button>
         </div>
     </main>
 
@@ -146,5 +88,87 @@
         <p>&copy; 2026 Douglas Thames. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        // Generate artwork data array from 101 to 155
+        const artworkData = [];
+        for (let i = 101; i <= 155; i++) {
+            const idStr = i.toString();
+            artworkData.push({
+                id: idStr,
+                title: `#${idStr}`,
+                price: '',
+                imageSrc: `assets/art/${idStr}.png`,
+                description: 'Art Print'
+            });
+        }
+
+        const itemsPerPage = 8;
+        let currentPage = 1;
+        const totalPages = Math.ceil(artworkData.length / itemsPerPage);
+
+        function renderGallery(page) {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = '';
+
+            const startIdx = (page - 1) * itemsPerPage;
+            const endIdx = startIdx + itemsPerPage;
+            const pageItems = artworkData.slice(startIdx, endIdx);
+
+            pageItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'art-card';
+                card.setAttribute('onclick', `openModal('${item.imageSrc}', '${item.id}', '${item.price}', '${item.description}')`);
+
+                card.innerHTML = `
+                    <div class="art-card-img-wrapper">
+                        <img src="${item.imageSrc}" alt="Artwork ${item.id}" loading="lazy">
+                    </div>
+                    <div class="art-card-info">
+                        <div class="art-title">${item.title}</div>
+                        <div class="art-price">${item.price}</div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // Update Pagination UI
+            document.getElementById('pageInfo').innerText = `Page ${currentPage} of ${totalPages}`;
+            document.getElementById('prevBtn').disabled = (currentPage === 1);
+            document.getElementById('nextBtn').disabled = (currentPage === totalPages);
+        }
+
+        function changePage(direction) {
+            const newPage = currentPage + direction;
+            if (newPage >= 1 && newPage <= totalPages) {
+                currentPage = newPage;
+                renderGallery(currentPage);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Modal Functionality
+        function openModal(imgSrc, id, price, desc) {
+            document.getElementById('modalImg').src = imgSrc;
+            document.getElementById('modalTitle').innerText = `#${id}`;
+            document.getElementById('modalPrice').innerText = price;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('artModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('artModal').style.display = 'none';
+        }
+
+        function closeModalOnOuterClick(event) {
+            if (event.target.id === 'artModal') {
+                closeModal();
+            }
+        }
+
+        // Initial render on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderGallery(currentPage);
+        });
+    </script>
 </body>
 </html>
