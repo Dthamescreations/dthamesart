@@ -359,3 +359,23 @@ p {
     padding: 0.8rem;
     font-size: 1rem;
 }
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.logo {
+    color: var(--gold-primary); /* Fallback */
+    background: linear-gradient(90deg, #b38728, #fbf5b7, #d4af37, #f3e5ab, #aa771c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+}
